@@ -23,7 +23,7 @@ const UserProfile = () => {
     'text-mainText rounded-md p-2 border-2 border-secondaryBg1 font-semibold';
   const { userId } = useParams();
   const { data: authData } = useAuthUser();
-  const { isLoading, data: userData, isError, error } = useUser(userId);
+  const { isLoading, data: userData } = useUser(userId);
   const { data: createdPins } = useCreatedPins(userId, text);
   const { data: savedPins } = useSavedPins(userId, text);
   const { mutate: edit } = useEditProfile(userId);

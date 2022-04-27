@@ -4,10 +4,7 @@ import { request } from '../api';
 const getAuthUser = () => {
   return request({ url: '/api/user' });
 };
-const getStoredUser = () => {
-  const storedUser = localStorage.getItem('auth');
-  return storedUser ? JSON.parse(JSON.stringify(storedUser)) : null;
-};
+
 export const useAuthUser = () => {
   const queryClient = useQueryClient();
   return useQuery('auth-user', getAuthUser, {
