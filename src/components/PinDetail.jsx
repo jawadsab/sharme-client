@@ -26,9 +26,7 @@ const PinDetail = () => {
     return 'Loading....';
   }
 
-  console.log(pinDetails);
-  console.log(commentsLoading, comments);
-  console.log(morePins?.data.pins);
+ 
 
   const handleInputChange = (e) => {
     setText(e.target.value);
@@ -39,7 +37,6 @@ const PinDetail = () => {
     post(data);
   };
 
-  console.log("COMMM",pinDetails.data.pin.comments)
   return (
     <div className="">
       <div className="flex md:flex-col p-2 rounded-md border border-mainText bg-primaryBg shadow-md gap-4">

@@ -27,14 +27,10 @@ const UserProfile = () => {
   const { data: createdPins } = useCreatedPins(userId, text);
   const { data: savedPins } = useSavedPins(userId, text);
   const { mutate: edit } = useEditProfile(userId);
-  console.log('savedPins pins', savedPins);
   const queryClient = useQueryClient();
-  console.log(userData);
   const logout = () => {
-    console.log('logout');
     localStorage.removeItem('auth');
     queryClient.setQueryData('auth-user', null);
-    console.log('AuthData', authData);
   };
   const [profileImage, setProfileImage] = useState(null);
 
@@ -53,14 +49,13 @@ const UserProfile = () => {
   const uploadImage = (e) => {
     console.log('Uploading....');
     const { type } = e.target.files[0];
-    if (type === 'image/png' || type === 'image/jpeg'|| type === "image/jpg") {
+    if (type === 'image/png' || type === 'image/jpeg' || type === 'image/jpg') {
       const reader = new FileReader();
       reader.onload = () => {
         if (reader.readyState === 2) {
           setProfileImage(e.target.files[0]);
 
           const bodyFormData = new FormData();
-          console.log(profileImage);
           bodyFormData.append('image', profileImage);
           edit(bodyFormData);
         }
@@ -68,7 +63,7 @@ const UserProfile = () => {
       console.log(e.target.files[0]);
       reader.readAsDataURL(e.target.files[0]);
     } else {
-      console.log('Error uploading');
+      console.error('Error uploading');
     }
   };
 

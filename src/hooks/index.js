@@ -12,7 +12,6 @@ export const useAuthUser = () => {
     refetchOnWindowFocus: false,
     initialData: null,
     onError: (err) => {
-      console.log('Error....');
       localStorage.removeItem('auth');
       queryClient.setQueryData('auth-user', null);
     },
@@ -110,7 +109,6 @@ export const useCategory = (cat) => {
 };
 
 export const useComment = (id) => {
-  console.log(id);
   const queryClient = useQueryClient();
   return useMutation(
     (comment) =>
@@ -128,7 +126,6 @@ export const useEditProfile = (id) => {
 
   return useMutation(
     (bodyFormData) => {
-      console.log("body",bodyFormData);
       return request({
         url: '/api/user/profile-image/upload',
         method: 'PUT',
@@ -182,7 +179,7 @@ export const useSavePin = () => {
     },
     {
       onSuccess: (data) => {
-        queryClient.invalidateQueries("get-all-pins");
+        queryClient.invalidateQueries('get-all-pins');
       },
     }
   );

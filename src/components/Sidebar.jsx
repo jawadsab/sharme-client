@@ -10,7 +10,6 @@ import Brand from "../assets/logo.png";
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
   const { data: authData } = useAuthUser();
-  console.log(authData);
   const sidebarClass = open
     ? 'bg-primaryBg text-mainText w-48 z-40 fixed top-0 bottom-0 transition-transform duration-300 sm:translate-x-0'
     : 'bg-primaryBg text-mainText w-48 z-40 fixed top-0 bottom-0 transition-transform duration-300 sm:-translate-x-full';

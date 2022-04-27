@@ -7,18 +7,16 @@ export const request = ({ ...options }) => {
   const auth = localStorage.getItem('auth');
   if (auth) {
     const { token } = JSON.parse(auth);
-    console.log("Tokken",token)
     client.defaults.headers.common.Authorization = `Bearer ${token}`;
   } else {
-    console.log("Yeahhh")
-    delete client.defaults.headers.common["Authorization"]; 
+    delete client.defaults.headers.common['Authorization'];
   }
   const onSuccess = (response) => {
     console.log(response);
     return response;
   };
   const onError = (error) => {
-    console.log(error)
+    console.error(error);
     throw error;
   };
 

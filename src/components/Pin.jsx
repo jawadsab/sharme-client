@@ -15,7 +15,6 @@ import { MdDelete } from 'react-icons/md';
 const Pin = ({ pin, created, loggedIn, loggedInID }) => {
   const queryClient = useQueryClient();
   const { postedBy } = pin;
-  console.log(postedBy);
   const [pinHovered, setPinHovered] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -23,12 +22,10 @@ const Pin = ({ pin, created, loggedIn, loggedInID }) => {
 
   const { data: authData } = useAuthUser();
   const successCallback = () => {
-    console.log(postedBy._id);
     queryClient.invalidateQueries(['createdPins', postedBy._id]);
   };
   const { mutate: deletePin } = useDeletePin(successCallback);
   const { mutate: savePin } = useSavePin();
-  console.log(useAuthUser());
 
   const bookMarkPin = (e) => {
     if (!authData) {
@@ -37,7 +34,6 @@ const Pin = ({ pin, created, loggedIn, loggedInID }) => {
       
       savePin(pin._id);
     }
-    console.log('Boo ma');
   };
 
   const isSaved = () => {
@@ -46,7 +42,6 @@ const Pin = ({ pin, created, loggedIn, loggedInID }) => {
       const { user } = response;
 
       const saves = pin?.saves;
-      console.log(saves);
       return saves.includes(user._id);
     }
 

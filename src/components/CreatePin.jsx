@@ -43,7 +43,7 @@ const CreatePin = () => {
       };
       reader.readAsDataURL(e.target.files[0]);
     } else {
-      console.log('Error uploading');
+      console.error('Error uploading');
     }
   };
   const submit = (e) => {
