@@ -1,0 +1,21 @@
+{
+    "pins":[
+        {
+            "_id": "62314baf09811b46e2a1c2c0",
+      "postedBy": {
+        "_id": "622dfb960e7b7a1c60be6ee3",
+        "username": "vajeehwefesfs"
+      },
+      "title": "title 1",
+      "description": "desc1",
+      "pinImage": "https://res.cloudinary.com/dkzhqm33q/image/upload/v1647397806/zqfzerbkkrxqqdvh5ech.jpg",
+      "public_id": "zqfzerbkkrxqqdvh5ech",
+      "comments": [],
+      "category": "cat1",
+      "saves": [],
+      "createdAt": "2022-03-16T02:30:07.036Z",
+      "updatedAt": "2022-03-16T02:30:07.036Z",
+      "__v": 0
+        }
+    ]
+}
